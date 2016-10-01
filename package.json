@@ -1,0 +1,58 @@
+{
+  "directories": {
+    "test": "test"
+  },
+  "author": "azu",
+  "license": "MIT",
+  "files": [
+    "bin/",
+    "lib/",
+    "src/"
+  ],
+  "name": "lru-map-like",
+  "version": "1.0.0",
+  "description": "LRU cache top on Map-like. Support non-string key.",
+  "main": "lib/lru-map-like.js",
+  "scripts": {
+    "test": "npm run test:mocha && npm run test:chriso",
+    "test:mocha": "mocha test/",
+    "test:chriso": "vows test/chriso-lru.js --spec",
+    "build": "NODE_ENV=production babel src --out-dir lib --source-maps",
+    "watch": "babel src --out-dir lib --watch --source-maps",
+    "prepublish": "npm run --if-present build",
+    "lint": "eslint src/ test/",
+    "lint:fix": "eslint --fix src/ test/"
+  },
+  "keywords": [
+    "lru",
+    "cache",
+    "map",
+    "object"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azu/lru-map-like.git"
+  },
+  "bugs": {
+    "url": "https://github.com/azu/lru-map-like/issues"
+  },
+  "homepage": "https://github.com/azu/lru-map-like",
+  "devDependencies": {
+    "add-text-to-markdown": "^1.0.2",
+    "babel-cli": "^6.16.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-jsdoc-to-assert": "^4.0.0",
+    "babel-preset-power-assert": "^1.0.0",
+    "babel-register": "^6.16.3",
+    "chai": "^3.5.0",
+    "documentation": "^4.0.0-beta10",
+    "documentation-markdown-api-theme": "^1.0.2",
+    "eslint": "^3.7.0",
+    "mocha": "^3.1.0",
+    "power-assert": "^1.4.1",
+    "vows": "^0.8.1"
+  },
+  "dependencies": {
+    "map-like": "^1.0.3"
+  }
+}
