@@ -21,7 +21,8 @@
     "watch": "babel src --out-dir lib --watch --source-maps",
     "prepublish": "npm run --if-present build",
     "lint": "eslint src/ test/",
-    "lint:fix": "eslint --fix src/ test/"
+    "lint:fix": "eslint --fix src/ test/",
+    "update:docs": "documentation build --access public --theme ./node_modules/documentation-markdown-api-theme/lib/index -f html -o out.md src/lru-map-like.js && cat out.md | add-text-to-markdown README.md --section \"API\" --write && rm out.md"
   },
   "keywords": [
     "lru",
