@@ -11,6 +11,7 @@ Install with [npm](https://www.npmjs.com/):
 ## Usage
 
 ```js
+const LRUMapLike = require("lru-map-like");
 const cache = new LRUMapLike(3);
 cache.set(0, "a");
 cache.set(1, "b");
@@ -27,6 +28,7 @@ Object as key are fully supported.
 It is [map-like](https://github.com/azu/map-like "map-like") feature.
 
 ```js
+const LRUMapLike = require("lru-map-like");
 const cache = new LRUMapLike();
 const keyObject = {};
 const valueObject = {};
