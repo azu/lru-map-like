@@ -2,6 +2,26 @@
 
 LRU cache top on Map-like. Support non-string key.
 
+## Features
+
+- Based on [Map-like](https://github.com/azu/map-like)
+    - It means that allow to use object as key
+- Tiny size: 2kb
+
+```
+env  bundle   minify   gzip
+--   13.8 kB  6.32 kB  2.34 kB
+```
+
+## Motivation
+
+I have used [isaacs/node-lru-cache](https://github.com/isaacs/node-lru-cache "isaacs/node-lru-cache"), but this library is large for me.
+
+```
+env  bundle   minify   gzip
+--   43.9 kB  27.5 kB  10.1 kB
+```
+
 ## Install
 
 Install with [npm](https://www.npmjs.com/):
