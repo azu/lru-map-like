@@ -10,7 +10,7 @@
     "src/"
   ],
   "name": "lru-map-like",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "LRU cache top on Map-like. Support non-string key.",
   "main": "lib/lru-map-like.js",
   "types": "lib/lru-map-like.d.js",
