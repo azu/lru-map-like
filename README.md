@@ -31,7 +31,7 @@ Install with [npm](https://www.npmjs.com/):
 ## Usage
 
 ```js
-const LRUMapLike = require("lru-map-like");
+const {LRUMapLike} = require("lru-map-like");
 const cache = new LRUMapLike(3);
 cache.set(0, "a");
 cache.set(1, "b");
