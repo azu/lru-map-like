@@ -5,7 +5,7 @@ const MapLike = require("map-like");
  * Based on https://github.com/rse/cache-lru
  * @public
  */
-class LRUMapLike {
+export class LRUMapLike {
     /**
      * @param {number} max max size of LRU cache - default: Infinity
      * @returns {LRUMapLike}
@@ -253,6 +253,3 @@ class LRUMapLike {
         bucket.older.newer = bucket;
     }
 }
-
-module.exports = LRUMapLike;
-

@@ -1,12 +1,12 @@
 // https://github.com/chriso/lru
 const assert = require("assert");
 const vows = require("vows");
-const LRU = require("../src/lru-map-like");
+const {LRUMapLike} = require("../src/lru-map-like");
 const suite = vows.describe("LRU");
 
 suite.addBatch({
     "clear() sets the cache to its initial state": function() {
-        const lru = new LRU(2);
+        const lru = new LRUMapLike(2);
 
         const json1 = JSON.stringify(lru);
 
@@ -19,7 +19,7 @@ suite.addBatch({
 
 suite.addBatch({
     "setting keys doesn't grow past max size": function() {
-        const lru = new LRU(3);
+        const lru = new LRUMapLike(3);
         assert.equal(0, lru.size);
         lru.set("foo1", "bar1");
         assert.equal(1, lru.size);
@@ -35,7 +35,7 @@ suite.addBatch({
 
 suite.addBatch({
     "lru invariant is maintained for set()": function() {
-        const lru = new LRU(2);
+        const lru = new LRUMapLike(2);
 
         lru.set("foo1", "bar1");
         lru.set("foo2", "bar2");
@@ -48,7 +48,7 @@ suite.addBatch({
 
 suite.addBatch({
     "ovrewriting a key updates the value": function() {
-        const lru = new LRU(2);
+        const lru = new LRUMapLike(2);
         lru.set("foo1", "bar1");
         assert.equal("bar1", lru.get("foo1"));
         lru.set("foo1", "bar2");
@@ -58,7 +58,7 @@ suite.addBatch({
 
 suite.addBatch({
     "lru invariant is maintained for get()": function() {
-        const lru = new LRU(2);
+        const lru = new LRUMapLike(2);
 
         lru.set("foo1", "bar1");
         lru.set("foo2", "bar2");
@@ -70,7 +70,7 @@ suite.addBatch({
         assert.deepEqual(["foo1", "foo3"], lru.keys());
     },
     "lru invariant is maintained after set(), get() and delete()": function() {
-        const lru = new LRU(2);
+        const lru = new LRUMapLike(2);
         lru.set("a", 1);
         lru.set("b", 2);
         assert.deepEqual(lru.get("a"), 1);
@@ -83,7 +83,7 @@ suite.addBatch({
 
 suite.addBatch({
     "lru invariant is maintained in the corner case size == 1": function() {
-        const lru = new LRU(1);
+        const lru = new LRUMapLike(1);
 
         lru.set("foo1", "bar1");
         lru.set("foo2", "bar2");
@@ -98,7 +98,7 @@ suite.addBatch({
 
 suite.addBatch({
     "peek() returns item value without changing the order": function() {
-        const lru = new LRU(2);
+        const lru = new LRUMapLike(2);
         lru.set("foo", "bar");
         lru.set("bar", "baz");
         assert.equal(lru.peek("foo"), "bar");
@@ -110,7 +110,7 @@ suite.addBatch({
 suite.addBatch({
     "idempotent changes": {
         "set() and delete() on empty LRU is idempotent": function() {
-            const lru = new LRU();
+            const lru = new LRUMapLike();
             const json1 = JSON.stringify(lru);
 
             lru.set("foo1", "bar1");
@@ -121,7 +121,7 @@ suite.addBatch({
         },
 
         "2 set()s and 2 delete()s on empty LRU is idempotent": function() {
-            const lru = new LRU();
+            const lru = new LRUMapLike();
             const json1 = JSON.stringify(lru);
 
             lru.set("foo1", "bar1");
@@ -134,7 +134,7 @@ suite.addBatch({
         },
 
         "2 set()s and 2 delete()s (in opposite order) on empty LRU is idempotent": function() {
-            const lru = new LRU();
+            const lru = new LRUMapLike();
             const json1 = JSON.stringify(lru);
 
             lru.set("foo1", "bar1");
@@ -147,7 +147,7 @@ suite.addBatch({
         },
 
         "after setting one key, get() is idempotent": function() {
-            const lru = new LRU(2);
+            const lru = new LRUMapLike(2);
             lru.set("a", "a");
             const json1 = JSON.stringify(lru);
 
@@ -158,7 +158,7 @@ suite.addBatch({
         },
 
         "after setting two keys, get() on last-set key is idempotent": function() {
-            const lru = new LRU(2);
+            const lru = new LRUMapLike(2);
             lru.set("a", "a");
             lru.set("b", "b");
             const json1 = JSON.stringify(lru);

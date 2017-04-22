@@ -21,7 +21,7 @@
 **  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 **  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-const CacheLRU = require("../src/lru-map-like");
+import {LRUMapLike as CacheLRU} from "../src/lru-map-like";
 const expect = require("chai").expect;
 
 describe("rse:Cache-LRU Library", () => {

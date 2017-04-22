@@ -1,4 +1,4 @@
-declare class LRUMapLike<K, V> {
+export declare class LRUMapLike<K, V> {
     private _map: any;
     private _LRU: any;
     private _MRU: any;
@@ -30,5 +30,3 @@ declare class LRUMapLike<K, V> {
     private _detach(): void;
     private _attach(): void;
 }
-
-export default LRUMapLike;

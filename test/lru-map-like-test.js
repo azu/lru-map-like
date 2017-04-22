@@ -1,4 +1,4 @@
-const LRUMapLike = require("../src/lru-map-like");
+const {LRUMapLike} = require("../src/lru-map-like");
 const assert = require("assert");
 describe("LRUMapLike", () => {
     it("work as LRU", () => {
