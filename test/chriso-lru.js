@@ -144,29 +144,6 @@ suite.addBatch({
             const json2 = JSON.stringify(lru);
 
             assert.deepEqual(json2, json1);
-        },
-
-        "after setting one key, get() is idempotent": function() {
-            const lru = new LRUMapLike(2);
-            lru.set("a", "a");
-            const json1 = JSON.stringify(lru);
-
-            lru.get("a");
-            const json2 = JSON.stringify(lru);
-
-            assert.equal(json2, json1);
-        },
-
-        "after setting two keys, get() on last-set key is idempotent": function() {
-            const lru = new LRUMapLike(2);
-            lru.set("a", "a");
-            lru.set("b", "b");
-            const json1 = JSON.stringify(lru);
-
-            lru.get("b");
-            const json2 = JSON.stringify(lru);
-
-            assert.equal(json2, json1);
         }
     }
 });
