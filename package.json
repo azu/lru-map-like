@@ -15,7 +15,7 @@
   "main": "lib/lru-map-like.js",
   "types": "lib/lru-map-like.d.ts",
   "scripts": {
-    "test": "npm run test:mocha && npm run test:chriso",
+    "test": "npm run build && npm run test:mocha && npm run test:chriso",
     "test:mocha": "mocha test/",
     "test:chriso": "vows test/chriso-lru.js --spec",
     "build": "NODE_ENV=production babel src --out-dir lib --copy-files --source-maps",
