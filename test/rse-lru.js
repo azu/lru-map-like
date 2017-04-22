@@ -21,12 +21,12 @@
 **  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 **  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-import {LRUMapLike as CacheLRU} from "../src/lru-map-like";
+const {LRUMapLike} = require("../lib/lru-map-like");
 const expect = require("chai").expect;
 
 describe("rse:Cache-LRU Library", () => {
     it("should expose the official API", () => {
-        const cache = new CacheLRU();
+        const cache = new LRUMapLike();
         expect(cache).to.be.a("object");
         expect(cache).to.respondTo("onDispose");
         expect(cache).to.respondTo("keys");
@@ -40,7 +40,7 @@ describe("rse:Cache-LRU Library", () => {
         expect(cache).to.respondTo("clear");
     });
     it("should provide the expected set/get functionality", () => {
-        const cache = new CacheLRU();
+        const cache = new LRUMapLike();
         cache.set("foo", true);
         cache.set("bar", "baz");
         cache.set("quux", 42);
@@ -49,7 +49,7 @@ describe("rse:Cache-LRU Library", () => {
         expect(cache.get("quux")).to.be.a("number").and.to.be.equal(42);
     });
     it("should provide the expected LRU semantics", () => {
-        const cache = new CacheLRU();
+        const cache = new LRUMapLike();
         cache.limit = 0;
         cache.set("foo", true);
         expect(cache.get("foo")).to.be.equal(undefined);

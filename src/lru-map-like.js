@@ -7,7 +7,7 @@ const MapLike = require("map-like");
  */
 export class LRUMapLike {
     /**
-     * @param {number} max max size of LRU cache - default: Infinity
+     * @param {number} [max] max size of LRU cache - default: Infinity
      * @returns {LRUMapLike}
      */
     constructor(max = Infinity) {

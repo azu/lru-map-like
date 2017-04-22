@@ -1,7 +1,7 @@
 // https://github.com/chriso/lru
 const assert = require("assert");
 const vows = require("vows");
-const {LRUMapLike} = require("../src/lru-map-like");
+const {LRUMapLike} = require("../lib/lru-map-like");
 const suite = vows.describe("LRU");
 
 suite.addBatch({
